@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warenkorb - Ra</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="logo">
+            <a href="index.html"><img src="Logo.png" alt="Ra Logo"></a>
+        </div>
+    </header>
+    <nav id="menu" class="closed">
+        <ul>
+            <li><a href="index.html#home">Startseite</a></li>
+            <li><a href="products.html">Produkte</a>
+              <ul>
+                <li><a href="#men">Herren</a></li>
+                <li><a href="#women">Damen</a></li>
+                <li><a href="#sport">Sport</a></li>
+                <li><a href="#lifestyle">Lifestyle</a></li>
+                <li><a href="#collections">Kollektionen</a></li>
+              </ul>
+            </li>
+            <li><a href="about.html">Über uns</a></li>
+            <li><a href="cart.html">Warenkorb</a></li>
+            <li><a href="index.html#Kontakt">Kontakt</a></li>
+        </ul>
+    </nav>
+    <section id="cart">
+        <h2>Warenkorb</h2>
+        <div id="cart-items"></div>
+        <div class="cart-total">
+            <p>Gesamt: 0 €</p>
+            <p>Versandkosten: 5,00 €</p>
+            <p>Lieferzeit: 2-3 Werktage</p>
+            <button onclick="proceedToCheckout()">Zur Kasse</button>
+        </div>
+    </section>
+    <footer>
+        <p>© 2023 Ra - Alle Rechte vorbehalten</p>
+        <div class="social-media">
+            <a href="index.html#facebook">Facebook</a>
+            <a href="index.html#twitter">Twitter</a>
+            <a href="index.html#instagram">Instagram</a>
+        </div>
+    </footer>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('closed');
+        }
+
+        function calculateTotal() {
+            const cartItems = document.querySelectorAll('.cart-item');
+            let total = 0;
+            cartItems.forEach(item => {
+                const price = parseFloat(item.querySelector('p:nth-child(3)').textContent.replace('€', ''));
+                const quantity = parseInt(item.querySelector('p:nth-child(2)').textContent.replace('Menge: ', ''));
+                total += price * quantity;
+            });
+            const shippingCost = 5.00;
+            const totalElement = document.querySelector('.cart-total p:first-child');
+            totalElement.textContent = `Gesamt: ${(total + shippingCost).toFixed(2)} €`;
+        }
+
+        function removeItem(button) {
+            const cartItem = button.parentNode;
+            cartItem.remove();
+            calculateTotal();
+        }
+
+        function proceedToCheckout() {
+            alert('Vielen Dank für Ihren Einkauf!');
+        }
+
+        function loadCartItems() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartItems = [
+                {
+                    name: 'Stylish',
+                    quantity: 1,
+                    price: 99.99
+                }
+            ];
+
+            cartItems.forEach(item => {
+                const cartItemElement = document.createElement('div');
+                cartItemElement.classList.add('cart-item');
+                cartItemElement.innerHTML = `
+                    <p>Produkt: ${item.name}</p>
+                    <p>Menge: ${item.quantity}</p>
+                    <p>Preis: ${item.price.toFixed(2)} €</p>
+                    <button onclick="removeItem(this)">Entfernen</button>
+                `;
+                cartItemsContainer.appendChild(cartItemElement);
+            });
+
+            calculateTotal();
+        }
+
+        window.addEventListener('load', () => {
+            loadCartItems();
+        });
+    </script>
+<footer>
+    <p>Impressum Ra OHG</p>
+    <p>Musterstraße 1, 11111 Musterhausen, Deutschland</p>
+    <p>Kontakt: Telefon: +49(0) 160 1234567, Fax: 1111111111, Email: office@ra-sunglasses.de</p>
+    <p>© 2023 Ra - Alle Rechte vorbehalten</p>
+    <div class="social-media">
+        <a href="#facebook">Facebook</a>
+        <a href="#twitter">Twitter</a>
+        <a href="#instagram">Instagram</a>
+    </div>
+</footer>
+
+</body>
+</html>

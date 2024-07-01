@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ra - Sonnenbrillen</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <div class="logo">
+      <a href="index.html"><img src="Logo.png" alt="Ra Logo"></a>
+    </div>
+    <nav id="menu" class="closed">
+      <ul>
+        <li><a href="index.html#home">Startseite</a></li>
+        <li><a href="products.html">Produkte</a>
+          <ul>
+            <li><a href="#men">Herren</a></li>
+            <li><a href="#women">Damen</a></li>
+            <li><a href="#sport">Sport</a></li>
+            <li><a href="#lifestyle">Lifestyle</a></li>
+            <li><a href="#collections">Kollektionen</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html">Über uns</a></li>
+        <li><a href="cart.html">Warenkorb</a></li>
+        <li><a href="index.html#Kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="banner">
+    <img src="banner.jpg" alt="Banner">
+    <div class="banner-text">
+      <h1>Willkommen bei Ra</h1>
+      <p>Entdecken Sie die besten Sonnenbrillen</p>
+      <a href="#products" class="button">Jetzt einkaufen</a>
+    </div>
+  </section>
+
+  <section id="products">
+    <h2>Unsere beliebtesten Sonnenbrillen</h2>
+    <div class="product-grid">
+      <div class="product">
+        <img src="sunglasses1.jpg" alt="Sonnenbrille 1">
+        <div class="product-info">
+          <p>Modellname: Stylish</p>
+          <p>Preis: 99,99 €</p>
+          <a href="cart.html" class="button add-to-cart" data-product-name="Stylish" data-product-price="99.99">In den Warenkorb</a>
+        </div>
+      </div>
+      <div class="product">
+        <img src="sunglasses2.jpg" alt="Sonnenbrille 2">
+        <div class="product-info">
+          <p>Modellname: Classic</p>
+          <p>Preis: 89,99 €</p>
+          <a href="cart.html" class="button add-to-cart" data-product-name="Classic" data-product-price="89.99">In den Warenkorb</a>
+        </div>
+      </div>
+      <div class="product">
+        <img src="sunglasses3.jpg" alt="Sonnenbrille 3">
+        <div class="product-info">
+          <p>Modellname: Elegant</p>
+          <p>Preis: 79,99 €</p>
+          <a href="cart.html" class="button add-to-cart" data-product-name="Elegant" data-product-price="79.99">In den Warenkorb</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <p>Impressum Ra OHG</p>
+    <p>Musterstraße 1, 11111 Musterhausen, Deutschland</p>
+    <p>Kontakt: Telefon: +49(0) 160 1234567, Fax: 1111111111, Email: office@ra-sunglasses.de</p>
+    <p>© 2023 Ra - Alle Rechte vorbehalten</p>
+    <div class="social-media">
+        <a href="#facebook">Facebook</a>
+        <a href="#twitter">Twitter</a>
+        <a href="#instagram">Instagram</a>
+    </div>
+</footer>
+
+</body>
+</html>
